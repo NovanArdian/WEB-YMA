@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kesiswaan - SMK YMA</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px 5%;
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      width: 95px;
+      height: 55px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      display: none;
+      list-style: none;
+      padding: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      min-width: 280px;
+      margin-top: 15px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .dropdown li {
+      padding: 8px 25px;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown li:hover {
+      background-color: #f8f9fa;
+    }
+
+    .dropdown a {
+      color: #1a1a1a;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      color: #2563eb;
+    }
+
+    .nav-links li:hover .dropdown {
+      display: block;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)), 
+                  url('images/kesis.png') center/cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes heroFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      background-color: white;
+      color: #2563eb;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .kesiswaan-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 5%;
+    }
+
+    .kesiswaan-content {
+      flex: 1 1 480px;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .section-description {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .highlights-list {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .highlights-list li {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .kesiswaan-image {
+      flex: 1 1 480px;
+      text-align: center;
+    }
+
+    .kesiswaan-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .kesiswaan-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .eskul-section {
+      margin-top: 50px;
+    }
+
+    .eskul-list {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .eskul-list li {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    
+    .menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 100; /* Ensure it's above other content */
+  margin-right: 20px; /* Space from the right edge */
+}
+
+.menu-icon .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for animation */
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  /* Navigation Links */
+  .nav-links {
+    display: none;
+    position: fixed; /* Posisikan tetap di layar */
+    top: 60px; /* Jarak dari navbar */
+    left: 50%; /* Posisikan di tengah horizontal */
+    transform: translateX(-50%); /* Pastikan berada di tengah */
+    width: 90%; /* Kurangi lebar agar tidak melebar ke luar layar */
+    max-width: 400px; /* Batasi lebar maksimal dropdown */
+    background-color: #fff; /* Warna latar */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+    border-radius: 10px; /* Sudut melengkung untuk tampilan modern */
+    border-top: 2px solid #ddd; /* Garis pemisah di bagian atas */
+    z-index: 1000; /* Pastikan dropdown berada di atas elemen lainnya */
+    overflow: hidden; /* Hilangkan elemen yang keluar */
+    transition: all 0.3s ease-in-out; /* Efek transisi untuk animasi */
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column; /* Tampilkan dalam urutan vertikal */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center; /* Rata tengah setiap item */
+    margin: 0; /* Hilangkan margin */
+    padding: 10px 0; /* Atur jarak antar item */
+    border-bottom: 1px solid #eee; /* Tambahkan garis bawah antar item */
+    transition: all 0.3s ease-in-out; /* Efek transisi */
+    position: relative; /* Untuk dropdown menu */
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none; /* Hilangkan garis terakhir */
+  }
+
+  .nav-links li a {
+    text-decoration: none; /* Hilangkan garis bawah pada link */
+    color: #333; /* Warna teks */
+    font-size: 16px; /* Ukuran font lebih kecil untuk responsif */
+    font-weight: 500; /* Tebal font */
+    padding: 10px; /* Tambahkan padding pada link */
+    display: block;
+    transition: all 0.3s ease-in-out; /* Efek hover transisi */
+  }
+
+  .nav-links li a:hover {
+    background-color: #f1f1f1; /* Warna latar saat hover */
+    color: #007bff; /* Warna teks saat hover */
+  }
+
+  /* Dropdown Menu */
+  .nav-links li .dropdown {
+    display: none; /* Sembunyikan dropdown secara default */
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    width: 90%;
+    max-width: 300px;
+    z-index: 999; /* Pastikan dropdown muncul di atas */
+    overflow: hidden;
+  }
+
+  .nav-links li.active .dropdown {
+    display: flex; /* Tampilkan dropdown saat item aktif */
+  }
+
+  .dropdown li {
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown li:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .dropdown li a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+  }
+
+  /* Show hamburger icon */
+  .menu-icon {
+    display: flex; /* Tampilkan menu ikon */
+  }
+
+  /* Add transition to hamburger when active */
+  .menu-icon.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: 1px 1px;
+  }
+
+  .menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: 1px 1px;
+  }
+}
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .kesiswaan-wrapper {
+        flex-direction: column;
+        padding: 30px 10%;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://www.smkyma.sch.id/wp-content/uploads/2018/09/cropped-cropped-Header-4.png" alt="Logo SMK YMA">
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li>
+          <a href="#kurikulum">Program Keahlian</a>
+          <ul class="dropdown">
+            <li><a href="bdo.html">Bisnis Daring dan Pemasaran</a></li>
+            <li><a href="otkp.html">Otomatisasi Tata Kelola Perkantoran</a></li>
+            <li><a href="upw.html">Usaha Perjalanan Wisata</a></li>
+          </ul>
+        </li>
+        <li><a href="#kesiswaan">Kesiswaan</a></li>
+        <li><a href="hubungan.html">Hubungan Industri</a></li>
+        <li><a href="fasilitas.html">Fasilitas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Kesiswaan SMK YMA</h2>
+      <p>Memberikan layanan terbaik untuk kebutuhan siswa di luar ruang kelas.</p>
+      <a href="#content" class="cta-button">Pelajari Lebih Lanjut</a>
+    </div>
+  </section>
+
+  <section id="kesiswaan" class="section">
+    <div class="kesiswaan-wrapper">
+      <div class="kesiswaan-content">
+        <h2 class="section-title">Tentang Kesiswaan SMK YMA</h2>
+        <p class="section-description">
+          Kesiswaan SMK YMA bertanggung jawab dalam pengelolaan kegiatan siswa di luar ruang kelas. Kami menyediakan fasilitas dan kegiatan yang mendukung pengembangan diri siswa melalui berbagai program yang mendidik dan membina karakter.
+        </p>
+        <div class="eskul-section">
+          <h3>Ekstrakurikuler Wajib</h3>
+          <ul class="eskul-list">
+            <li>1. Pramuka Gugus Depan 28-073 (Ambalan Maulana Asshogiri)</li>
+            <li>2. Pramuka Gugus Depan 28-074 (Ambalan Ratu Rofi'ah)</li>
+          </ul>
+
+          <h3>Ekstrakurikuler Pilihan (Maksimal 2)</h3>
+          <ul class="eskul-list">
+            <li>3. Paskibra Xsatria Maulana Muda</li>
+            <li>4. Palang Merah Remaja Unit SMK YMA Megamendung</li>
+            <li>5. Unit Pecinta Alam Maulana Assogiri (UPAMA)</li>
+            <li>6. Keputrian (Beauty Class)</li>
+            <li>7. Rohani Islam Ashabul Maimanah</li>
+            <li><b>8. Bahasa Asing dan Sains:</b>
+              <ul>
+                <li>a. English Club</li>
+                <li>b. Mathematic Club</li>
+                <li>c. Japanese Club</li>
+              </ul>
+            </li>
+            <li><b>9. Olahraga:</b>
+              <ul>
+                <li>a. Pencak Silat Perisai Diri Ranting Bogor</li>
+                <li>b. Tim Basket SMK YMA Megamendung</li>
+                <li>c. Tim Bulu Tangkis SMK YMA Megamendung</li>
+                <li>d. Tim Voli SMK YMA Megamendung</li>
+                <li>e. Tim Futsal SMK YMA Megamendung</li>
+                <li>f. Judo</li>
+              </ul>
+            </li>
+            <li><b>10. Kesenian:</b>
+              <ul>
+                <li>a. Paduan Suara</li>
+                <li>b. Angklung</li>
+              </ul>
+            </li>
+            <li><b>11. Entrepreneur Club</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="kesiswaan-image">
+        <img src="images/ay.png" alt="Ilustrasi Kesiswaan">
+      </div>
+    </div>
+  </section>
+  <script>
+    function toggleMenu() {
+  const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+menuIcon.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  menuIcon.classList.toggle('active');
+});
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fasilitas - SMK YMA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --text-dark: #1a1a1a;
+      --text-light: #4b5563;
+      --background: #f8f9fa;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: var(--background);
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px 5%;
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      width: 95px;
+      height: 55px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .hero {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)), 
+                  url('https://www.liputanbogor.com/wp-content/uploads/2022/04/IMG-20220424-WA0000.jpg') center/cover;
+      color: var(--white);
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/api/placeholder/1920/1080') center/cover;
+      z-index: -1;
+      animation: scale 20s infinite alternate linear;
+    }
+
+    @keyframes scale {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 200px 20px 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .facilities-container {
+      max-width: 1400px;
+      margin: -100px auto 0;
+      padding: 0 5% 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .facility-category {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .facility-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+    }
+
+    .facility-category:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .category-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e5e7eb;
+      position: relative;
+    }
+
+    .category-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .facility-list {
+      list-style: none;
+    }
+
+    .facility-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #f3f4f6;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    .facility-item:hover {
+      color: var(--primary);
+      transform: translateX(10px);
+    }
+
+    .facility-item::before {
+      content: "→";
+      color: var(--primary);
+      margin-right: 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .facility-item:hover::before {
+      transform: translateX(5px);
+    }
+
+    .facility-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .facility-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .facility-category:hover .facility-image img {
+      transform: scale(1.1);
+    }
+
+    .menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 100; /* Ensure it's above other content */
+  margin-right: 20px; /* Space from the right edge */
+}
+
+.menu-icon .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for animation */
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  /* Navigation Links */
+  .nav-links {
+    display: none;
+    position: fixed; /* Posisikan tetap di layar */
+    top: 60px; /* Jarak dari navbar */
+    left: 50%; /* Posisikan di tengah horizontal */
+    transform: translateX(-50%); /* Pastikan berada di tengah */
+    width: 90%; /* Kurangi lebar agar tidak melebar ke luar layar */
+    max-width: 400px; /* Batasi lebar maksimal dropdown */
+    background-color: #fff; /* Warna latar */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+    border-radius: 10px; /* Sudut melengkung untuk tampilan modern */
+    border-top: 2px solid #ddd; /* Garis pemisah di bagian atas */
+    z-index: 1000; /* Pastikan dropdown berada di atas elemen lainnya */
+    overflow: hidden; /* Hilangkan elemen yang keluar */
+    transition: all 0.3s ease-in-out; /* Efek transisi untuk animasi */
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column; /* Tampilkan dalam urutan vertikal */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center; /* Rata tengah setiap item */
+    margin: 0; /* Hilangkan margin */
+    padding: 10px 0; /* Atur jarak antar item */
+    border-bottom: 1px solid #eee; /* Tambahkan garis bawah antar item */
+    transition: all 0.3s ease-in-out; /* Efek transisi */
+    position: relative; /* Untuk dropdown menu */
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none; /* Hilangkan garis terakhir */
+  }
+
+  .nav-links li a {
+    text-decoration: none; /* Hilangkan garis bawah pada link */
+    color: #333; /* Warna teks */
+    font-size: 16px; /* Ukuran font lebih kecil untuk responsif */
+    font-weight: 500; /* Tebal font */
+    padding: 10px; /* Tambahkan padding pada link */
+    display: block;
+    transition: all 0.3s ease-in-out; /* Efek hover transisi */
+  }
+
+  .nav-links li a:hover {
+    background-color: #f1f1f1; /* Warna latar saat hover */
+    color: #007bff; /* Warna teks saat hover */
+  }
+
+  /* Dropdown Menu */
+  .nav-links li .dropdown {
+    display: none; /* Sembunyikan dropdown secara default */
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    width: 90%;
+    max-width: 300px;
+    z-index: 999; /* Pastikan dropdown muncul di atas */
+    overflow: hidden;
+  }
+
+  .nav-links li.active .dropdown {
+    display: flex; /* Tampilkan dropdown saat item aktif */
+  }
+
+  .dropdown li {
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown li:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .dropdown li a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+  }
+
+  /* Show hamburger icon */
+  .menu-icon {
+    display: flex; /* Tampilkan menu ikon */
+  }
+
+  /* Add transition to hamburger when active */
+  .menu-icon.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: 1px 1px;
+  }
+
+  .menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: 1px 1px;
+  }
+}
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .facilities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .facilities-container {
+        margin-top: -50px;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://www.smkyma.sch.id/wp-content/uploads/2018/09/cropped-cropped-Header-4.png" alt="Logo SMK YMA">
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="#kurikulum">Program Keahlian</a></li>
+        <li><a href="kesiswaan.html">Kesiswaan</a></li>
+        <li><a href="hubungan.html">Hubungan Industri</a></li>
+        <li><a href="fasilitas.html">Fasilitas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h2>Fasilitas SMK YMA</h2>
+      <p>Memadukan teknologi modern dan lingkungan belajar yang nyaman untuk mendukung prestasi siswa</p>
+    </div>
+  </section>
+
+  <div class="facilities-container">
+    <div class="facilities-grid">
+      <div class="facility-category" data-aos="fade-up">
+        <div class="facility-image">
+          <img src="https://assets-a1.kompasiana.com/items/album/2017/04/01/dscn0362-jpg-58df21cd519373bb183c36e4.jpg?t=o&v=1200" alt="Gedung SMK YMA">
+        </div>
+        <h3 class="category-title">Gedung & Infrastruktur</h3>
+        <ul class="facility-list">
+          <li class="facility-item">Gedung milik sendiri dengan letak strategis di pinggir Jalan Raya Puncak</li>
+          <li class="facility-item">Gedung 2 dengan nuansa alami</li>
+          <li class="facility-item">Ruang Serbaguna</li>
+        </ul>
+      </div>
+
+      <div class="facility-category" data-aos="fade-up" data-aos-delay="100">
+        <div class="facility-image">
+          <img src="images/lab.png" alt="Laboratorium Komputer">
+        </div>
+        <h3 class="category-title">Fasilitas Teknologi</h3>
+        <ul class="facility-list">
+          <li class="facility-item">Laboratorium Komputer Windows 10 dengan LCD Monitor</li>
+          <li class="facility-item">Digital Projector + wireless display untuk belajar di kelas</li>
+          <li class="facility-item">Local Area Network & Internet Fiber 500 Mbps</li>
+          <li class="facility-item">Lab Bahasa Digital + Plasma 42 inch</li>
+          <li class="facility-item">LED Monitor 65 inci dan 55 inci setiap kelas</li>
+          <li class="facility-item">Wi-Fi Free Internet Hotspot satu kelas satu perangkat</li>
+        </ul>
+      </div>
+
+      <div class="facility-category" data-aos="fade-up" data-aos-delay="200">
+        <div class="facility-image">
+          <img src="images/jurusan.png" alt="Laboratorium Jurusan">
+        </div>
+        <h3 class="category-title">Laboratorium Jurusan</h3>
+        <ul class="facility-list">
+          <li class="facility-item">Lab.K.K. Pariwisata (Mini Travel Agent)</li>
+          <li class="facility-item">Lab.K.K. Administrasi Perkantoran (Mini Office)</li>
+          <li class="facility-item">Lab.K.K. Pemasaran (Mini Mart)</li>
+        </ul>
+      </div>
+
+      <div class="facility-category" data-aos="fade-up">
+        <div class="facility-image">
+          <img src="images/mushola.png" alt="Musholla">
+        </div>
+        <h3 class="category-title">Fasilitas Ibadah</h3>
+        <ul class="facility-list">
+          <li class="facility-item">Musholla Putra</li>
+          <li class="facility-item">Musholla Putri</li>
+        </ul>
+      </div>
+
+      <div class="facility-category" data-aos="fade-up" data-aos-delay="100">
+        <div class="facility-image">
+          <img src="images/lapangan.png" alt="Fasilitas Olahraga">
+        </div>
+        <h3 class="category-title">Fasilitas Olahraga</h3>
+        <ul class="facility-list">
+          <li class="facility-item">Lapangan Serbaguna Futsal, Basket, Volley, Badminton</li>
+          <li class="facility-item">Tenis Meja</li>
+        </ul>
+      </div>
+
+      <div class="facility-category" data-aos="fade-up" data-aos-delay="200">
+        <div class="facility-image">
+          <img src="https://s3.archiplan.ugm.ac.id/wp-content/uploads/sites/1484/2022/12/Perpus-dtap-1024x682.jpg" alt="Perpustakaan">
+        </div>
+        <h3 class="category-title">Fasilitas Penunjang</h3>
+        <ul class="facility-list">
+          <li class="facility-item">Ruangan Lab. menggunakan Air Conditioner (AC)</li>
+          <li class="facility-item">Perpustakaan dan e-Library</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+
+function toggleMenu() {
+  const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+menuIcon.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  menuIcon.classList.toggle('active');
+});
+}
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+  </script>
+</body>
+</html>
