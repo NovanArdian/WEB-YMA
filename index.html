@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMK YMA Megamendung</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       background-color: #f8f9fa;
     }
-    
+
     header {
       background-color: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -33,7 +34,7 @@
       padding: 5px 5%;
       background-color: rgba(255, 255, 255, 0.98);
     }
-    
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -41,13 +42,13 @@
       max-width: 1400px;
       margin: 0 auto;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
       gap: 15px;
     }
-    
+
     .logo img {
       width: 95px;
       height: 55px;
@@ -63,18 +64,18 @@
     header.scrolled .logo h1 {
       font-size: 1.3rem;
     }
-    
+
     .nav-links {
       list-style: none;
       display: flex;
       gap: 40px;
       align-items: center;
     }
-    
+
     .nav-links li {
       position: relative;
     }
-    
+
     .nav-links a {
       text-decoration: none;
       color: #1a1a1a;
@@ -84,7 +85,7 @@
       padding: 8px 0;
       position: relative;
     }
-    
+
     .nav-links a:after {
       content: '';
       position: absolute;
@@ -95,11 +96,11 @@
       bottom: 0;
       transition: width 0.3s ease;
     }
-    
+
     .nav-links a:hover:after {
       width: 100%;
     }
-    
+
     .dropdown {
       position: absolute;
       top: 100%;
@@ -115,12 +116,19 @@
       margin-top: 15px;
       animation: fadeIn 0.3s ease;
     }
-    
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
     }
-    
+
     .dropdown:before {
       content: '';
       position: absolute;
@@ -131,33 +139,33 @@
       border-right: 8px solid transparent;
       border-bottom: 8px solid white;
     }
-    
+
     .dropdown li {
       padding: 8px 25px;
       transition: all 0.3s ease;
     }
-    
+
     .dropdown li:hover {
       background-color: #f8f9fa;
     }
-    
+
     .dropdown a {
       color: #1a1a1a;
       font-size: 0.9rem;
       display: block;
     }
-    
+
     .dropdown a:hover {
       color: #2563eb;
     }
-    
+
     .nav-links li:hover .dropdown {
       display: block;
     }
-    
+
     .hero {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)), 
-                url('https://assets-a1.kompasiana.com/items/album/2017/04/01/dscn0362-jpg-58df21cd519373bb183c36e4.jpg') center/cover;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)),
+        url('https://assets-a1.kompasiana.com/items/album/2017/04/01/dscn0362-jpg-58df21cd519373bb183c36e4.jpg') center/cover;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -167,7 +175,7 @@
       padding: 0 20px;
       position: relative;
     }
-    
+
     .hero-content {
       max-width: 900px;
       opacity: 0;
@@ -175,33 +183,33 @@
       animation: heroFadeIn 1s ease forwards;
       animation-delay: 0.5s;
     }
-    
+
     @keyframes heroFadeIn {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    
+
     .hero h2 {
       font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 20px;
       line-height: 1.2;
     }
-    
+
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
       font-weight: 300;
     }
-    
+
     .cta-buttons {
       display: flex;
       gap: 20px;
       justify-content: center;
     }
-    
+
     .cta-button {
       display: inline-block;
       padding: 15px 35px;
@@ -210,57 +218,57 @@
       font-weight: 500;
       transition: all 0.3s ease;
     }
-    
+
     .primary-cta {
       background-color: white;
       color: #2563eb;
     }
-    
+
     .primary-cta:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-    
+
     .secondary-cta {
       border: 2px solid white;
       color: white;
     }
-    
+
     .secondary-cta:hover {
       background-color: white;
       color: #2563eb;
     }
-    
+
     .section {
       padding: 100px 5%;
       max-width: 1400px;
       margin: 0 auto;
     }
-    
+
     .section-header {
       text-align: center;
       margin-bottom: 60px;
     }
-    
+
     .section-header h2 {
       color: #1a1a1a;
       font-size: 2.5rem;
       margin-bottom: 15px;
     }
-    
+
     .section-header p {
       color: #666;
       font-size: 1.1rem;
       max-width: 700px;
       margin: 0 auto;
     }
-    
+
     .jurusan-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
     }
-    
+
     .jurusan-card {
       background-color: white;
       border-radius: 20px;
@@ -268,44 +276,44 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
-    
+
     .jurusan-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
-    
+
     .jurusan-image {
       height: 220px;
       position: relative;
       overflow: hidden;
     }
-    
+
     .jurusan-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
-    
+
     .jurusan-card:hover .jurusan-image img {
       transform: scale(1.1);
     }
-    
+
     .jurusan-content {
       padding: 30px;
     }
-    
+
     .jurusan-content h3 {
       color: #1a1a1a;
       font-size: 1.5rem;
       margin-bottom: 15px;
     }
-    
+
     .jurusan-content p {
       color: #666;
       margin-bottom: 20px;
     }
-    
+
     .learn-more {
       color: #2563eb;
       text-decoration: none;
@@ -314,7 +322,7 @@
       align-items: center;
       gap: 5px;
     }
-    
+
     .learn-more:hover {
       gap: 10px;
     }
@@ -322,158 +330,234 @@
 
 
 
-/* Responsif (mobile view) */
-/* Hamburger Menu Icon */
-.menu-icon {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 100; /* Ensure it's above other content */
-  margin-right: 20px; /* Space from the right edge */
-}
+    /* Responsif (mobile view) */
+    /* Hamburger Menu Icon */
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 100;
+      /* Ensure it's above other content */
+      margin-right: 20px;
+      /* Space from the right edge */
+    }
 
-.menu-icon .bar {
-  width: 30px;
-  height: 4px;
-  background-color: #333;
-  margin: 5px 0;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out; /* Smooth transition for animation */
-}
+    .menu-icon .bar {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+      /* Smooth transition for animation */
+    }
 
-/* Mobile View */
-@media screen and (max-width: 768px) {
-  /* Navigation Links */
-  .nav-links {
-    display: none;
-    position: fixed; /* Posisikan tetap di layar */
-    top: 60px; /* Jarak dari navbar */
-    left: 50%; /* Posisikan di tengah horizontal */
-    transform: translateX(-50%); /* Pastikan berada di tengah */
-    width: 90%; /* Kurangi lebar agar tidak melebar ke luar layar */
-    max-width: 400px; /* Batasi lebar maksimal dropdown */
-    background-color: #fff; /* Warna latar */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
-    border-radius: 10px; /* Sudut melengkung untuk tampilan modern */
-    border-top: 2px solid #ddd; /* Garis pemisah di bagian atas */
-    z-index: 1000; /* Pastikan dropdown berada di atas elemen lainnya */
-    overflow: hidden; /* Hilangkan elemen yang keluar */
-    transition: all 0.3s ease-in-out; /* Efek transisi untuk animasi */
-  }
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-  .nav-links.active {
-    display: flex;
-    flex-direction: column; /* Tampilkan dalam urutan vertikal */
-  }
+    /* Spinner */
+    .spinner {
+      border: 8px solid #f3f3f3;
+      /* Light gray */
+      border-top: 8px solid #3498db;
+      /* Blue */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1.5s linear infinite;
+    }
 
-  .nav-links li {
-    width: 100%;
-    text-align: center; /* Rata tengah setiap item */
-    margin: 0; /* Hilangkan margin */
-    padding: 10px 0; /* Atur jarak antar item */
-    border-bottom: 1px solid #eee; /* Tambahkan garis bawah antar item */
-    transition: all 0.3s ease-in-out; /* Efek transisi */
-    position: relative; /* Untuk dropdown menu */
-  }
+    /* Keyframes for Spinner Animation */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
 
-  .nav-links li:last-child {
-    border-bottom: none; /* Hilangkan garis terakhir */
-  }
-
-  .nav-links li a {
-    text-decoration: none; /* Hilangkan garis bawah pada link */
-    color: #333; /* Warna teks */
-    font-size: 16px; /* Ukuran font lebih kecil untuk responsif */
-    font-weight: 500; /* Tebal font */
-    padding: 10px; /* Tambahkan padding pada link */
-    display: block;
-    transition: all 0.3s ease-in-out; /* Efek hover transisi */
-  }
-
-  .nav-links li a:hover {
-    background-color: #f1f1f1; /* Warna latar saat hover */
-    color: #007bff; /* Warna teks saat hover */
-  }
-
-  /* Dropdown Menu */
-  .nav-links li .dropdown {
-    display: none; /* Sembunyikan dropdown secara default */
-    flex-direction: column;
-    background-color: #fff;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100%;
-    width: 90%;
-    max-width: 300px;
-    z-index: 999; /* Pastikan dropdown muncul di atas */
-    overflow: hidden;
-  }
-
-  .nav-links li.active .dropdown {
-    display: flex; /* Tampilkan dropdown saat item aktif */
-  }
-
-  .dropdown li {
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-
-  .dropdown li:last-child {
-    border-bottom: none;
-  }
-
-  .dropdown li a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .dropdown li a:hover {
-    background-color: #f1f1f1;
-    color: #007bff;
-  }
-
-  /* Show hamburger icon */
-  .menu-icon {
-    display: flex; /* Tampilkan menu ikon */
-  }
-
-  /* Add transition to hamburger when active */
-  .menu-icon.active .bar:nth-child(1) {
-    transform: rotate(45deg);
-    transform-origin: 1px 1px;
-  }
-
-  .menu-icon.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-icon.active .bar:nth-child(3) {
-    transform: rotate(-45deg);
-    transform-origin: 1px 1px;
-  }
-}
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
 
-    
-    
+    /* Mobile View */
+    @media screen and (max-width: 768px) {
+
+      /* Navigation Links */
+      .nav-links {
+        display: none;
+        position: fixed;
+        /* Posisikan tetap di layar */
+        top: 60px;
+        /* Jarak dari navbar */
+        left: 50%;
+        /* Posisikan di tengah horizontal */
+        transform: translateX(-50%);
+        /* Pastikan berada di tengah */
+        width: 90%;
+        /* Kurangi lebar agar tidak melebar ke luar layar */
+        max-width: 400px;
+        /* Batasi lebar maksimal dropdown */
+        background-color: #fff;
+        /* Warna latar */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        /* Tambahkan bayangan */
+        border-radius: 10px;
+        /* Sudut melengkung untuk tampilan modern */
+        border-top: 2px solid #ddd;
+        /* Garis pemisah di bagian atas */
+        z-index: 1000;
+        /* Pastikan dropdown berada di atas elemen lainnya */
+        overflow: hidden;
+        /* Hilangkan elemen yang keluar */
+        transition: all 0.3s ease-in-out;
+        /* Efek transisi untuk animasi */
+      }
+
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        /* Tampilkan dalam urutan vertikal */
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        /* Rata tengah setiap item */
+        margin: 0;
+        /* Hilangkan margin */
+        padding: 10px 0;
+        /* Atur jarak antar item */
+        border-bottom: 1px solid #eee;
+        /* Tambahkan garis bawah antar item */
+        transition: all 0.3s ease-in-out;
+        /* Efek transisi */
+        position: relative;
+        /* Untuk dropdown menu */
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+        /* Hilangkan garis terakhir */
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        /* Hilangkan garis bawah pada link */
+        color: #333;
+        /* Warna teks */
+        font-size: 16px;
+        /* Ukuran font lebih kecil untuk responsif */
+        font-weight: 500;
+        /* Tebal font */
+        padding: 10px;
+        /* Tambahkan padding pada link */
+        display: block;
+        transition: all 0.3s ease-in-out;
+        /* Efek hover transisi */
+      }
+
+      .nav-links li a:hover {
+        background-color: #f1f1f1;
+        /* Warna latar saat hover */
+        color: #007bff;
+        /* Warna teks saat hover */
+      }
+
+      /* Dropdown Menu */
+      .nav-links li .dropdown {
+        display: none;
+        /* Sembunyikan dropdown secara default */
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        width: 90%;
+        max-width: 300px;
+        z-index: 999;
+        /* Pastikan dropdown muncul di atas */
+        overflow: hidden;
+      }
+
+      .nav-links li.active .dropdown {
+        display: flex;
+        /* Tampilkan dropdown saat item aktif */
+      }
+
+      .dropdown li {
+        padding: 10px 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
+
+      .dropdown li:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown li a {
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .dropdown li a:hover {
+        background-color: #f1f1f1;
+        color: #007bff;
+      }
+
+      /* Show hamburger icon */
+      .menu-icon {
+        display: flex;
+        /* Tampilkan menu ikon */
+      }
+
+      /* Add transition to hamburger when active */
+      .menu-icon.active .bar:nth-child(1) {
+        transform: rotate(45deg);
+        transform-origin: 1px 1px;
+      }
+
+      .menu-icon.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-icon.active .bar:nth-child(3) {
+        transform: rotate(-45deg);
+        transform-origin: 1px 1px;
+      }
+    }
+
+
+
+
     @media (max-width: 768px) {
-      
+
       .hero h2 {
         font-size: 2.5rem;
       }
-      
+
       .section {
         padding: 60px 5%;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -500,7 +584,7 @@
         <li><a href="fasilitas.html">Fasilitas</a></li>
       </ul>
     </nav>
-    
+
   </header>
 
   <section class="hero" id="beranda">
@@ -526,7 +610,8 @@
         </div>
         <div class="jurusan-content">
           <h3>Bisnis Daring dan Pemasaran</h3>
-          <p>Pelajari strategi pemasaran modern, e-commerce, dan digital marketing untuk menjadi entrepreneur sukses di era digital.</p>
+          <p>Pelajari strategi pemasaran modern, e-commerce, dan digital marketing untuk menjadi entrepreneur sukses di
+            era digital.</p>
           <a href="bdo.html" class="learn-more">Selengkapnya →</a>
         </div>
       </div>
@@ -536,7 +621,8 @@
         </div>
         <div class="jurusan-content">
           <h3>Otomatisasi Tata Kelola Perkantoran</h3>
-          <p>Kuasai administrasi perkantoran modern dengan teknologi terkini untuk karir profesional yang menjanjikan.</p>
+          <p>Kuasai administrasi perkantoran modern dengan teknologi terkini untuk karir profesional yang menjanjikan.
+          </p>
           <a href="otkp.html" class="learn-more">Selengkapnya →</a>
         </div>
       </div>
@@ -551,19 +637,31 @@
         </div>
       </div>
     </div>
+    <div id="loading-screen">
+      <div class="spinner"></div>
+    </div>
+
   </section>
 
   <script>
 
-function toggleMenu() {
-  const menuIcon = document.querySelector('.menu-icon');
-const navLinks = document.querySelector('.nav-links');
+    window.addEventListener('load', function () {
+      // Menunggu hingga halaman selesai dimuat
+      setTimeout(function () {
+        document.getElementById('loading-screen').style.display = 'none';
+      }, 3000); // Tunggu 3 detik sebelum menyembunyikan loading screen
+    });
 
-menuIcon.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  menuIcon.classList.toggle('active');
-});
-}
+
+    function toggleMenu() {
+      const menuIcon = document.querySelector('.menu-icon');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+      });
+    }
 
     // Add scroll event for header
     window.addEventListener('scroll', () => {
@@ -576,4 +674,5 @@ menuIcon.addEventListener('click', () => {
     });
   </script>
 </body>
+
 </html>

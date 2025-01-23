@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,8 +126,8 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)), 
-                  url('images/uwp.png') center/cover;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)),
+        url('images/uwp.png') center/cover;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -252,139 +253,176 @@
     }
 
     .menu-icon {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 100; /* Ensure it's above other content */
-  margin-right: 20px; /* Space from the right edge */
-}
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 100;
+      /* Ensure it's above other content */
+      margin-right: 20px;
+      /* Space from the right edge */
+    }
 
-.menu-icon .bar {
-  width: 30px;
-  height: 4px;
-  background-color: #333;
-  margin: 5px 0;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out; /* Smooth transition for animation */
-}
+    .menu-icon .bar {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+      /* Smooth transition for animation */
+    }
 
-/* Mobile View */
-@media screen and (max-width: 768px) {
-  /* Navigation Links */
-  .nav-links {
-    display: none;
-    position: fixed; /* Posisikan tetap di layar */
-    top: 60px; /* Jarak dari navbar */
-    left: 50%; /* Posisikan di tengah horizontal */
-    transform: translateX(-50%); /* Pastikan berada di tengah */
-    width: 90%; /* Kurangi lebar agar tidak melebar ke luar layar */
-    max-width: 400px; /* Batasi lebar maksimal dropdown */
-    background-color: #fff; /* Warna latar */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
-    border-radius: 10px; /* Sudut melengkung untuk tampilan modern */
-    border-top: 2px solid #ddd; /* Garis pemisah di bagian atas */
-    z-index: 1000; /* Pastikan dropdown berada di atas elemen lainnya */
-    overflow: hidden; /* Hilangkan elemen yang keluar */
-    transition: all 0.3s ease-in-out; /* Efek transisi untuk animasi */
-  }
+    /* Mobile View */
+    @media screen and (max-width: 768px) {
 
-  .nav-links.active {
-    display: flex;
-    flex-direction: column; /* Tampilkan dalam urutan vertikal */
-  }
+      /* Navigation Links */
+      .nav-links {
+        display: none;
+        position: fixed;
+        /* Posisikan tetap di layar */
+        top: 60px;
+        /* Jarak dari navbar */
+        left: 50%;
+        /* Posisikan di tengah horizontal */
+        transform: translateX(-50%);
+        /* Pastikan berada di tengah */
+        width: 90%;
+        /* Kurangi lebar agar tidak melebar ke luar layar */
+        max-width: 400px;
+        /* Batasi lebar maksimal dropdown */
+        background-color: #fff;
+        /* Warna latar */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        /* Tambahkan bayangan */
+        border-radius: 10px;
+        /* Sudut melengkung untuk tampilan modern */
+        border-top: 2px solid #ddd;
+        /* Garis pemisah di bagian atas */
+        z-index: 1000;
+        /* Pastikan dropdown berada di atas elemen lainnya */
+        overflow: hidden;
+        /* Hilangkan elemen yang keluar */
+        transition: all 0.3s ease-in-out;
+        /* Efek transisi untuk animasi */
+      }
 
-  .nav-links li {
-    width: 100%;
-    text-align: center; /* Rata tengah setiap item */
-    margin: 0; /* Hilangkan margin */
-    padding: 10px 0; /* Atur jarak antar item */
-    border-bottom: 1px solid #eee; /* Tambahkan garis bawah antar item */
-    transition: all 0.3s ease-in-out; /* Efek transisi */
-    position: relative; /* Untuk dropdown menu */
-  }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        /* Tampilkan dalam urutan vertikal */
+      }
 
-  .nav-links li:last-child {
-    border-bottom: none; /* Hilangkan garis terakhir */
-  }
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        /* Rata tengah setiap item */
+        margin: 0;
+        /* Hilangkan margin */
+        padding: 10px 0;
+        /* Atur jarak antar item */
+        border-bottom: 1px solid #eee;
+        /* Tambahkan garis bawah antar item */
+        transition: all 0.3s ease-in-out;
+        /* Efek transisi */
+        position: relative;
+        /* Untuk dropdown menu */
+      }
 
-  .nav-links li a {
-    text-decoration: none; /* Hilangkan garis bawah pada link */
-    color: #333; /* Warna teks */
-    font-size: 16px; /* Ukuran font lebih kecil untuk responsif */
-    font-weight: 500; /* Tebal font */
-    padding: 10px; /* Tambahkan padding pada link */
-    display: block;
-    transition: all 0.3s ease-in-out; /* Efek hover transisi */
-  }
+      .nav-links li:last-child {
+        border-bottom: none;
+        /* Hilangkan garis terakhir */
+      }
 
-  .nav-links li a:hover {
-    background-color: #f1f1f1; /* Warna latar saat hover */
-    color: #007bff; /* Warna teks saat hover */
-  }
+      .nav-links li a {
+        text-decoration: none;
+        /* Hilangkan garis bawah pada link */
+        color: #333;
+        /* Warna teks */
+        font-size: 16px;
+        /* Ukuran font lebih kecil untuk responsif */
+        font-weight: 500;
+        /* Tebal font */
+        padding: 10px;
+        /* Tambahkan padding pada link */
+        display: block;
+        transition: all 0.3s ease-in-out;
+        /* Efek hover transisi */
+      }
 
-  /* Dropdown Menu */
-  .nav-links li .dropdown {
-    display: none; /* Sembunyikan dropdown secara default */
-    flex-direction: column;
-    background-color: #fff;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100%;
-    width: 90%;
-    max-width: 300px;
-    z-index: 999; /* Pastikan dropdown muncul di atas */
-    overflow: hidden;
-  }
+      .nav-links li a:hover {
+        background-color: #f1f1f1;
+        /* Warna latar saat hover */
+        color: #007bff;
+        /* Warna teks saat hover */
+      }
 
-  .nav-links li.active .dropdown {
-    display: flex; /* Tampilkan dropdown saat item aktif */
-  }
+      /* Dropdown Menu */
+      .nav-links li .dropdown {
+        display: none;
+        /* Sembunyikan dropdown secara default */
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        width: 90%;
+        max-width: 300px;
+        z-index: 999;
+        /* Pastikan dropdown muncul di atas */
+        overflow: hidden;
+      }
 
-  .dropdown li {
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
+      .nav-links li.active .dropdown {
+        display: flex;
+        /* Tampilkan dropdown saat item aktif */
+      }
 
-  .dropdown li:last-child {
-    border-bottom: none;
-  }
+      .dropdown li {
+        padding: 10px 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
 
-  .dropdown li a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.3s ease-in-out;
-  }
+      .dropdown li:last-child {
+        border-bottom: none;
+      }
 
-  .dropdown li a:hover {
-    background-color: #f1f1f1;
-    color: #007bff;
-  }
+      .dropdown li a {
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+      }
 
-  /* Show hamburger icon */
-  .menu-icon {
-    display: flex; /* Tampilkan menu ikon */
-  }
+      .dropdown li a:hover {
+        background-color: #f1f1f1;
+        color: #007bff;
+      }
 
-  /* Add transition to hamburger when active */
-  .menu-icon.active .bar:nth-child(1) {
-    transform: rotate(45deg);
-    transform-origin: 1px 1px;
-  }
+      /* Show hamburger icon */
+      .menu-icon {
+        display: flex;
+        /* Tampilkan menu ikon */
+      }
 
-  .menu-icon.active .bar:nth-child(2) {
-    opacity: 0;
-  }
+      /* Add transition to hamburger when active */
+      .menu-icon.active .bar:nth-child(1) {
+        transform: rotate(45deg);
+        transform-origin: 1px 1px;
+      }
 
-  .menu-icon.active .bar:nth-child(3) {
-    transform: rotate(-45deg);
-    transform-origin: 1px 1px;
-  }
-}
+      .menu-icon.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-icon.active .bar:nth-child(3) {
+        transform: rotate(-45deg);
+        transform-origin: 1px 1px;
+      }
+    }
 
 
     /* Responsive Design */
@@ -407,8 +445,46 @@
         font-size: 1rem;
       }
     }
+
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 8px solid #f3f3f3;
+      /* Light gray */
+      border-top: 8px solid #3498db;
+      /* Blue */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1.5s linear infinite;
+    }
+
+    /* Keyframes for Spinner Animation */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -450,7 +526,9 @@
       <div class="tentang-content">
         <h2 class="section-title">Tentang Bisnis Daring dan Pemasaran</h2>
         <p class="section-description">
-          Bisnis Daring dan Pemasaran adalah salah satu program keahlian unggulan di SMK YMA Megamendung. Program ini dirancang untuk membekali siswa dengan kemampuan dalam mengelola bisnis online, strategi pemasaran digital, serta keterampilan praktis yang relevan dengan dunia kerja modern.
+          Bisnis Daring dan Pemasaran adalah salah satu program keahlian unggulan di SMK YMA Megamendung. Program ini
+          dirancang untuk membekali siswa dengan kemampuan dalam mengelola bisnis online, strategi pemasaran digital,
+          serta keterampilan praktis yang relevan dengan dunia kerja modern.
         </p>
         <p class="section-highlights">
           <strong>Keunggulan Program:</strong>
@@ -458,7 +536,8 @@
         <ul class="highlights-list">
           <li><strong>Praktik Nyata:</strong> Siswa diajarkan menjalankan toko online menggunakan platform populer.</li>
           <li><strong>Kemitraan Industri:</strong> Kolaborasi dengan perusahaan ternama untuk pelatihan dan magang.</li>
-          <li><strong>Kurikulum Terupdate:</strong> Fokus pada tren pemasaran digital, seperti SEO, SEM, dan media sosial.</li>
+          <li><strong>Kurikulum Terupdate:</strong> Fokus pada tren pemasaran digital, seperti SEO, SEM, dan media
+            sosial.</li>
         </ul>
         <a href="https://wa.me/6281282493399" class="cta-button primary-cta">Hubungi Kami</a>
       </div>
@@ -466,19 +545,32 @@
         <img src="images/bdp.png" alt="Ilustrasi Bisnis Daring dan Pemasaran">
       </div>
     </div>
+
+    <div id="loading-screen">
+      <div class="spinner"></div>
+    </div>
   </section>
 
   <script>
-    function toggleMenu() {
-  const menuIcon = document.querySelector('.menu-icon');
-const navLinks = document.querySelector('.nav-links');
 
-menuIcon.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  menuIcon.classList.toggle('active');
-});
-}
+    window.addEventListener('load', function () {
+      // Menunggu hingga halaman selesai dimuat
+      setTimeout(function () {
+        document.getElementById('loading-screen').style.display = 'none';
+      }, 3000); // Tunggu 3 detik sebelum menyembunyikan loading screen
+    });
+
+    function toggleMenu() {
+      const menuIcon = document.querySelector('.menu-icon');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+      });
+    }
 
   </script>
 </body>
+
 </html>
